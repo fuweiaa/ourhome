@@ -1,9 +1,9 @@
 /*
  * @Author: fuwei
  * @Date: 2024-04-22 23:47:20
- * @LastEditors: fuwei
- * @LastEditTime: 2024-04-23 00:47:33
- * @FilePath: \bigevent-vite\src\router\index.ts
+ * @LastEditors: fuweiaa
+ * @LastEditTime: 2024-04-23 10:44:19
+ * @FilePath: \bigevent-vue3\src\router\index.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
  */
@@ -26,7 +26,14 @@ const routes = [
   },
   {
     path: "/home",
-    component: () => import("../views/home.vue"),
+    component: () => import("@/views/home.vue"),
+    meta: {
+      keepAlive: false,
+    },
+  },
+  {
+    path: "/social",
+    component: () => import("../views/socialfriends/index.vue"),
     meta: {
       keepAlive: false,
     },

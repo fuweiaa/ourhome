@@ -2,6 +2,8 @@
     <div id="container">
         首页登录界面
     </div>
+    <router-link to="home">点击跳转到首页</router-link>
+    <router-link to="social">点击跳转到首页</router-link>
 </template>
 
 <script setup lang="ts">
