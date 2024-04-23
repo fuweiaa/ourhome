@@ -2,13 +2,14 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 15:15:50
+ * @LastEditTime: 2024-04-23 16:36:46
  * @FilePath: \bigevent-vue3\src\views\login.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
 <template>
   <div id="container">首页登录界面</div>
+  <form action=""></form>
 </template>
 
 <script setup lang="ts">

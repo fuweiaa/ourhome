@@ -2,7 +2,7 @@
  * @Author: fuwei
  * @Date: 2024-04-22 23:47:20
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 11:16:43
+ * @LastEditTime: 2024-04-23 16:58:07
  * @FilePath: \bigevent-vue3\src\router\index.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -25,14 +25,35 @@ const routes = [
   },
   {
     path: "/login",
-    component: () => import("@/views/login.vue"),
+    component: () => import("@/views/login/login.vue"),
     meta: {
       keepAlive: false,
     },
   },
   {
     path: "/social",
-    component: () => import("../views/socialfriends/index.vue"),
+    component: () => import("@/views/socialfriends/index.vue"),
+    meta: {
+      keepAlive: false,
+    },
+  },
+  {
+    path: "/daynote",
+    component: () => import("@/views/daynote/index.vue"),
+    meta: {
+      keepAlive: false,
+    },
+  },
+  {
+    path: "/eating",
+    component: () => import("@/views/eating/index.vue"),
+    meta: {
+      keepAlive: false,
+    },
+  },
+  {
+    path: "/familyfuns",
+    component: () => import("@/views/familyfuns/index.vue"),
     meta: {
       keepAlive: false,
     },
