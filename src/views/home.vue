@@ -1,21 +1,37 @@
+<!--
+ * @Author: fuweiaa
+ * @Date: 2024-04-23 09:59:39
+ * @LastEditors: fuweiaa
+ * @LastEditTime: 2024-04-23 16:33:43
+ * @FilePath: \bigevent-vue3\src\views\home.vue
+ * @Description: 
+ * Copyright (c) 2024 by VGE, All Rights Reserved. 
+-->
 <template>
-    <div id="container">
-        首页
-    </div>
+  <div class="common-layout">
+        <Header />
+        <el-divider class="fgx"/>
+  </div>
 </template>
 
 <script setup lang="ts">
-// import { onMounted } from "vue";
-// onMounted(() => {
-//     console.log('hello world');
-    
-// }),
+import Header from '../components/Header.vue';
 </script>
 
 <style lang="scss" scoped>
-.container{
-    width: 500px;
-    height: 500px;
-    background-color: aqua;
+.common-layout {
+  width: 100%;
+  height: 100%;
+  .fgx{
+    margin: 0
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    .points {
+        position: relative;
+        top: 50%;
+    }
+  }
 }
 </style>
