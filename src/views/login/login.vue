@@ -2,8 +2,8 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 16:36:46
- * @FilePath: \bigevent-vue3\src\views\login.vue
+ * @LastEditTime: 2024-04-23 17:02:34
+ * @FilePath: \bigevent-vue3\src\views\login\login.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
@@ -13,11 +13,11 @@
 </template>
 
 <script setup lang="ts">
-// import { onMounted } from "vue";
-// onMounted(() => {
-//     console.log('hello world');
+import { onMounted } from "vue";
+onMounted(() => {
+  console.log('hello world');
 
-// }),
+}),
 </script>
 
 <style lang="scss" scoped>
