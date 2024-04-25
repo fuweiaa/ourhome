@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-25 09:50:26
+ * @LastEditTime: 2024-04-25 14:43:40
  * @FilePath: \bigevent-vue3\vite.config.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -20,7 +20,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 2000,
+    port: 10099,
     host: "0.0.0.0",
   },
 });

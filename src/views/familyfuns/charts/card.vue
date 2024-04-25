@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-25 11:00:45
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-25 11:17:13
+ * @LastEditTime: 2024-04-25 14:32:39
  * @FilePath: \bigevent-vue3\src\views\familyfuns\charts\card.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -27,6 +27,7 @@ const props = defineProps<{
     width: 700px;
     height: 300px;
     background-color: #ea87f7;
+    opacity: 0.5;
     margin: 20px;
 }
 </style>

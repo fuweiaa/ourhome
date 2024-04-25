@@ -2,7 +2,7 @@
  * @Author: fuwei
  * @Date: 2024-04-22 23:47:20
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 16:58:07
+ * @LastEditTime: 2024-04-25 15:22:14
  * @FilePath: \bigevent-vue3\src\router\index.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -19,10 +19,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-  {
-    path: "/",
-    component: () => import("@/views/home.vue"),
-  },
   {
     path: "/login",
     component: () => import("@/views/login/login.vue"),
