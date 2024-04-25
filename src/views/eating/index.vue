@@ -1,51 +1,36 @@
 <template>
     <div>玥玥，又到吃饭时间啦！欢迎来到吃饭大转盘</div>
+    <div class="eats">
+        <el-form ref="formRef" style="max-width: 600px" :model="dynamicValidateForm" label-width="auto"
+            class="demo-dynamic">
+            <el-form-item v-for="(domain, index) in dynamicValidateForm.domains" :key="domain.key"
+                :label="'吃饭选项' + index" :prop="'domains.' + index + '.value'" :rules="{
+                    required: true,
+                    message: 'domain can not be null',
+                    trigger: 'blur',
+                }">
+                <el-input v-model="domain.value" />
+                <el-button class="mt-2" @click.prevent="removeDomain(domain)">
+                    删除
+                </el-button>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="submitForm(formRef)">提交</el-button>
+                <el-button @click="addDomain">新增</el-button>
+                <el-button @click="resetForm(formRef)">重置</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
     <div class="body">
         <div class="container" :style="styleObject">
             <div class="turntable">
-                <div class="prize-container"></div>
-                <div class="prize-container"></div>
-                <div class="prize-container"></div>
-                <div class="prize-container"></div>
-                <div class="prize-container"></div>
-                <div class="prize-container"></div>
+                <div class="prize-container" v-for="(item, index) in chioces" :key="index"></div>
             </div>
 
             <div class="turntable">
-                <div class="prize">
+                <div class="prize" v-for="(item, index) in chioces" :key="index">
                     <div class="prize-child">
-                        <div>奖品</div>
-                        <p>1等奖</p>
-                    </div>
-                </div>
-                <div class="prize">
-                    <div class="prize-child">
-                        <div>奖品</div>
-                        <p>2等奖</p>
-                    </div>
-                </div>
-                <div class="prize">
-                    <div class="prize-child">
-                        <div>奖品</div>
-                        <p>3等奖</p>
-                    </div>
-                </div>
-                <div class="prize">
-                    <div class="prize-child">
-                        <div>奖品</div>
-                        <p>4等奖</p>
-                    </div>
-                </div>
-                <div class="prize">
-                    <div class="prize-child">
-                        <div>奖品</div>
-                        <p>5等奖</p>
-                    </div>
-                </div>
-                <div class="prize">
-                    <div class="prize-child">
-                        <div>奖品</div>
-                        <p>6等奖</p>
+                        <p>{{ item.name }}</p>
                     </div>
                 </div>
             </div>
@@ -57,7 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
+import type { FormInstance } from 'element-plus'
 
 const rotation = ref(0);
 const buttonDisabled = ref(false);
@@ -78,9 +64,79 @@ function drawPrize() {
     }, 4000); // 与 CSS 过渡时间匹配
 }
 
+let chioces = ref([
+    { name: '吃干锅', detail: '吃干锅' },
+    { name: '饺子', detail: '饺子' },
+    { name: '面', detail: '面' },
+    { name: '盖饭', detail: '盖饭' },
+    { name: '螺蛳粉', detail: '螺蛳粉' },
+    { name: '四食堂', detail: '四食堂' }
+]);
+
+// form表单
+const formRef = ref<FormInstance>()
+const dynamicValidateForm = reactive<{
+    domains: DomainItem[]
+}>({
+    domains: [
+        {
+            key: 1,
+            value: '',
+        },
+    ],
+})
+
+interface DomainItem {
+    key: number
+    value: string
+}
+
+const removeDomain = (item: DomainItem) => {
+    const index = dynamicValidateForm.domains.indexOf(item)
+    if (index !== -1) {
+        dynamicValidateForm.domains.splice(index, 1)
+    }
+}
+
+const addDomain = () => {
+    dynamicValidateForm.domains.push({
+        key: Date.now(),
+        value: '',
+    })
+}
+
+
+const submitForm = (formEl: FormInstance | undefined) => {
+
+    for (let i = 0; i < dynamicValidateForm.domains.length; i++) {
+        chioces.value[i].name = dynamicValidateForm.domains[i].value;
+        console.log(chioces);
+
+    }
+
+    if (!formEl) return
+    formEl.validate((valid) => {
+        if (valid) {
+            console.log('submit!')
+        } else {
+            console.log('error submit!')
+            return false
+        }
+    })
+}
+
+const resetForm = (formEl: FormInstance | undefined) => {
+    if (!formEl) return
+    formEl.resetFields()
+}
 </script>
 
 <style lang="scss" scoped>
+.eats {
+    top: 90px;
+    position: absolute;
+}
+
 .body {
     width: 100vw;
     height: 100vh;

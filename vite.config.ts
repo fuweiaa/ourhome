@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 11:19:00
+ * @LastEditTime: 2024-04-25 09:50:26
  * @FilePath: \bigevent-vue3\vite.config.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -18,5 +18,9 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
+  },
+  server: {
+    port: 2000,
+    host: "0.0.0.0",
   },
 });
