@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 17:02:34
+ * @LastEditTime: 2024-04-25 16:28:01
  * @FilePath: \bigevent-vue3\src\views\login\login.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -17,7 +17,7 @@ import { onMounted } from "vue";
 onMounted(() => {
   console.log('hello world');
 
-}),
+})
 </script>
 
 <style lang="scss" scoped>
