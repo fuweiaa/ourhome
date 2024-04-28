@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 16:13:50
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 16:57:23
+ * @LastEditTime: 2024-04-28 16:43:18
  * @FilePath: \bigevent-vue3\src\components\Header.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -10,9 +10,9 @@
 <template>
     <el-header class="header">
         <div class="leftpanel">
-            <el-button type="primary" class="points social" @click="toSocial">朋友圈</el-button>
+            <el-button type="primary" class="points social" @click="toSocial">查看朋友圈</el-button>
+            <el-button type="info" class="points familyfuns" @click="">朋友圈发布</el-button>
             <el-button type="success" class="points daynote" @click="toDaynote">日记</el-button>
-            <el-button type="info" class="points familyfuns" @click="toFamilyfuns">家庭趣事</el-button>
             <el-button type="warning" class="points eating" @click="toEating">吃饭大转盘</el-button>
         </div>
         <div class="rightpanel">
@@ -33,10 +33,6 @@ function toSocial() {
 
 function toDaynote() {
     router.push('/daynote');
-}
-
-function toFamilyfuns() {
-    router.push('/familyfuns');
 }
 
 function toEating() {

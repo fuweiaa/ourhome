@@ -2,7 +2,7 @@
  * @Author: fuwei
  * @Date: 2024-04-22 23:47:20
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-25 15:22:14
+ * @LastEditTime: 2024-04-28 16:43:03
  * @FilePath: \bigevent-vue3\src\router\index.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -46,14 +46,7 @@ const routes = [
     meta: {
       keepAlive: false,
     },
-  },
-  {
-    path: "/familyfuns",
-    component: () => import("@/views/familyfuns/index.vue"),
-    meta: {
-      keepAlive: false,
-    },
-  },
+  }
   // 其他路由...
 ];
 
