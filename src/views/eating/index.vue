@@ -1,44 +1,44 @@
 <template>
-    <div>玥玥，又到吃饭时间啦！欢迎来到吃饭大转盘</div>
-    <div class="eats">
-        <el-form ref="formRef" style="max-width: 600px" :model="dynamicValidateForm" label-width="auto"
-            class="demo-dynamic">
-            <el-form-item v-for="(domain, index) in dynamicValidateForm.domains" :key="domain.key"
-                :label="'吃饭选项' + index" :prop="'domains.' + index + '.value'" :rules="{
-                    required: true,
-                    message: 'domain can not be null',
-                    trigger: 'blur',
-                }">
-                <el-input v-model="domain.value" />
-                <el-button class="mt-2" @click.prevent="removeDomain(domain)">
-                    删除
-                </el-button>
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" @click="submitForm(formRef)">提交</el-button>
-                <el-button @click="addDomain">新增</el-button>
-                <el-button @click="resetForm(formRef)">重置</el-button>
-            </el-form-item>
-        </el-form>
-    </div>
-    <div class="body">
-        <div class="container" :style="styleObject">
-            <div class="turntable">
-                <div class="prize-container" v-for="(item, index) in chioces" :key="index"></div>
-            </div>
+        <div id="yycf">可爱的玥玥，又到吃饭时间啦！欢迎来到吃饭大转盘</div>
+        <div class="eats">
+            <el-form ref="formRef" style="max-width: 600px" :model="dynamicValidateForm" label-width="auto"
+                class="demo-dynamic">
+                <el-form-item v-for="(domain, index) in dynamicValidateForm.domains" :key="domain.key"
+                    :label="'吃饭选项' + index" :prop="'domains.' + index + '.value'" :rules="{
+                        required: true,
+                        message: 'domain can not be null',
+                        trigger: 'blur',
+                    }">
+                    <el-input v-model="domain.value" />
+                    <el-button class="mt-2" @click.prevent="removeDomain(domain)">
+                        取消
+                    </el-button>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="submitForm(formRef)">提交</el-button>
+                    <el-button @click="addDomain">新增</el-button>
+                    <el-button @click="resetForm(formRef)">重置</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
+        <div class="body">
+            <div class="container" :style="styleObject">
+                <div class="turntable">
+                    <div class="prize-container" v-for="(item, index) in chioces" :key="index"></div>
+                </div>
 
-            <div class="turntable">
-                <div class="prize" v-for="(item, index) in chioces" :key="index">
-                    <div class="prize-child">
-                        <p>{{ item.name }}</p>
+                <div class="turntable">
+                    <div class="prize" v-for="(item, index) in chioces" :key="index">
+                        <div class="prize-child">
+                            <p>{{ item.name }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="pointer"></div>
-        <button class="draw-btn" @click="drawPrize" :disabled="buttonDisabled">吃啥子</button>
+            <div class="pointer"></div>
+            <button class="draw-btn" @click="drawPrize" :disabled="buttonDisabled">吃啥子</button>
 
-    </div>
+        </div>
 </template>
 
 <script setup lang="ts">
@@ -132,6 +132,14 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style lang="scss" scoped>
+
+.yycf {
+    background-color: aquamarine;
+    z-index: 1;
+    color: blue;
+    background-color: yellow;
+}
+
 .eats {
     top: 90px;
     position: absolute;
@@ -143,12 +151,16 @@ const resetForm = (formEl: FormInstance | undefined) => {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image:  url('src/image/ganfan.png');
+    background-position:  top;
+    background-repeat:  no-repeat;
+    background-size: 200px auto;
 }
 
 .container {
     width: 300px;
     height: 300px;
-    background-color: red;
+    background-color: rgb(188, 108, 145);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -168,12 +180,12 @@ const resetForm = (formEl: FormInstance | undefined) => {
 .prize-container {
     width: 280px;
     height: 280px;
-    background-color: bisque;
+    background-color: rgb(139, 211, 219);
     position: absolute;
     left: 50%;
     top: -50%;
     /*600-280/2,将prize正方形左下角点对准圆心*/
-    border: 1px solid red;
+    border: 1px solid rgb(6, 6, 1);
     /*以正方形左下角为中心旋转，0% 100%即左下角的坐标*/
     transform-origin: 0% 100%;
 }
