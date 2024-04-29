@@ -2,30 +2,25 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 10:24:45
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-23 10:28:14
+ * @LastEditTime: 2024-04-29 15:44:57
  * @FilePath: \bigevent-vue3\src\views\socialfriends\index.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
 <template id="myhead">
     <div>
-        <pyqhead/>
-        <zmd/>
-        <Card/>
+        <Pyqhead />
+        <Zmd />
+        <Card />
     </div>
 </template>
 
 <script setup lang="ts">
-import pyqhead from "../socialfriends/charts/pyqhead.vue"
+import Pyqhead from "@/views/socialfriends/charts/pyqhead.vue";
 import Card from "@/views/socialfriends/charts/card.vue";
-import zmd from '../socialfriends/charts/zmd.vue'
-//   export default {
-//     name: 'index',
-//     components:{
-//       Card,
-//       zmd
-//     }
-//   }
+import Zmd from '../socialfriends/charts/zmd.vue'
+
+
 </script>
 
 <style lang="scss" scoped>
