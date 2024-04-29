@@ -9,14 +9,14 @@
 -->
 <template id="myhead">
     <div>
-        <daynotehead />
-        <book />
+        <Daynotehead />
+        <Book />
     </div>
 </template>
 
 <script setup lang="ts">
-import daynotehead from "../daynote/daynotehead.vue"
-import book from "../daynote/book.vue"
+import Daynotehead from "../daynote/daynotehead.vue"
+import Book from "../daynote/book.vue"
 //   export default {
 //     name: 'index',
 //     components:{
