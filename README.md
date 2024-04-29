@@ -9,3 +9,5 @@ This template should help get you started developing with Vue 3 and TypeScript i
 - Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
 
 git push origin master
+
+所有图片都要保存在public/assets里面哦

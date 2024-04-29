@@ -1,23 +1,23 @@
 <!--
  * @Author: fuweiaa
  * @Date: 2024-04-23 16:46:49
- * @LastEditors: yy
- * @LastEditTime: 2024-04-29 16:38:34
- * @FilePath: \bigevent-vue3\src\views\daynote\index.vue
+ * @LastEditors: fuweiaa
+ * @LastEditTime: 2024-04-29 17:38:51
+ * @FilePath: \bigevent-vue3\src\views\daynote\daynotehead.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
 <template>
     <div id="top-bar">
-        <img src="@/image/logo(1).png" class="logo1">
-        <img src="@/image/logo(2).png" class="logo2">
+        <img src="/assets/image/logo(1).png" class="logo1">
+        <img src="/assets/image/logo(2).png" class="logo2">
         <a class="function" href="https://1diary.me/web2/#/login?redirect=%2F">私密日记</a>
         <a class="function" href="https://www.51miz.com/so-sucai/92744.html">素材</a>
         <a class="function" href="https://www.sohu.com/a/655338847_121663109">夹带私货</a>
         https://www.myanswersbook.com/zh-cn/
         <button class="flower-button" @click="toggleAudioPlayer">播放BGM</button>
         <audio v-if="showAudioPlayer" controls autoplay loop>
-            <source src="@/music/yoursmile.wav" type="audio/mpeg">
+            <source src="/music/yoursmile.wav" type="audio/mpeg">
             Your browser support the audio element.
         </audio>
     </div>
@@ -40,7 +40,7 @@ showAudioPlayer.value = false;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("src/image/head.jpg");
+    background-image: url("/assets/image/head.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% auto;

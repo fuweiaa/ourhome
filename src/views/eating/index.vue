@@ -142,7 +142,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('src/image/ganfan.png');
+    background-image: url('/assets/image/ganfan.png');
     background-position: top;
     background-repeat: no-repeat;
     background-size: 200px auto;

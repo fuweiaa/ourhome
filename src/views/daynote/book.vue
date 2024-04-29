@@ -1,9 +1,9 @@
 <!--
  * @Author: yy
  * @Date: 2024-04-29 16:40:45
- * @LastEditors: yy
- * @LastEditTime: 2024-04-29 16:40:14
- * @FilePath: \bigevent-vue3\src\views\daynote\index.vue
+ * @LastEditors: fuweiaa
+ * @LastEditTime: 2024-04-29 17:39:10
+ * @FilePath: \bigevent-vue3\src\views\daynote\book.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
@@ -20,13 +20,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  // 组件逻辑
-}
-</script>
+<script lang="ts" setup></script>
 
-<style scoped>
+
+<style scoped lang="scss">
 .book {
   width: 300px;
   height: 400px;
@@ -48,7 +45,7 @@ export default {
   top: 0;
   left: 0;
   background-color: #ccc;
-  background-image: url("src/image/mi.jpg");
+  background-image: url("/assets/image/mi.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 300px auto;
@@ -74,7 +71,7 @@ export default {
   display: none;
   pointer-events: none;
   /* 禁止页面内容影响鼠标事件 */
-  background-image: url("src/image/pig.jpg");
+  background-image: url("/assets/image/pig.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 300px auto;
