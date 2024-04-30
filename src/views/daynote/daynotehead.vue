@@ -14,7 +14,6 @@
         <a class="function" href="https://1diary.me/web2/#/login?redirect=%2F">私密日记</a>
         <a class="function" href="https://www.51miz.com/so-sucai/92744.html">素材</a>
         <a class="function" href="https://www.sohu.com/a/655338847_121663109">夹带私货</a>
-        https://www.myanswersbook.com/zh-cn/
         <button class="flower-button" @click="toggleAudioPlayer">播放BGM</button>
         <audio v-if="showAudioPlayer" controls autoplay loop>
             <source src="/music/yoursmile.wav" type="audio/mpeg">

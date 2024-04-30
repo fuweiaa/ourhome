@@ -1,7 +1,7 @@
 <!--
  * @Author: fuweiaa
  * @Date: 2024-04-28 16:50:03
- * @LastEditors: fuweiaa
+ * @LastEditors: yy
  * @LastEditTime: 2024-04-29 17:39:48
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\pyqhead.vue
  * @Description: 

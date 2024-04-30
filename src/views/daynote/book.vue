@@ -26,8 +26,9 @@
 <style scoped lang="scss">
 .book {
   width: 300px;
-  height: 400px;
+  height: 500px;
   perspective: 1000px;
+  margin-left: 20px;
 }
 
 .cover {
@@ -74,11 +75,11 @@
   background-image: url("/assets/image/pig.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 300px auto;
+  background-size: 310px auto;
 }
 
 .word {
-  color: rgb(255, 255, 255);
+  color: rgb(5, 5, 5);
   font-family: Arial;
   font-size: 18px;
   font-weight: bold;

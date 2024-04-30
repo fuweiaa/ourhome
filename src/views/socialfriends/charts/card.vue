@@ -33,7 +33,7 @@ let info = ref([
   { datetime: '4月19日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '玥玥的新旗袍，好看好看！' },
   { datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
   { datetime: '4月27日', imgs: '/assets/socialfriends/露营.jpg', copywriting: '天气晴朗，万物可爱' },
-  { datetime: '4月27日', imgs: '/assets/socialfriends/hua.png', copywriting: '愿我们永远珍惜这份美好，保护大自然的环境，让这片风景永远美丽如初。' }
+  { datetime: '4月27日', imgs: '/assets/image/hua.png', copywriting: '愿我们永远珍惜这份美好。' }
 ])
 
 function sendMsg() {
