@@ -15,6 +15,9 @@
             <Draw />
             <Poem />
         </div>
+        <div>
+            <Guanggao />
+        </div>
     </div>
 </template>
 
@@ -23,6 +26,7 @@ import Daynotehead from "../daynote/daynotehead.vue"
 import Book from "../daynote/book.vue"
 import Draw from "../daynote/draw.vue"
 import Poem from "../daynote/poem.vue"
+import Guanggao from "../daynote/guanggao.vue"
 //   export default {
 //     name: 'index',
 //     components:{
@@ -30,7 +34,6 @@ import Poem from "../daynote/poem.vue"
 //       zmd
 //     }
 //   }
-
 </script>
 
 <style lang="scss" scoped>
@@ -52,10 +55,6 @@ import Poem from "../daynote/poem.vue"
 
 .component-container {
     display: flex;
-}
-
-.Book {
-    width: 70%;
 }
 
 .book-component {
