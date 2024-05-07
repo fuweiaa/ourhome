@@ -41,6 +41,7 @@ import Guanggao from "../daynote/guanggao.vue"
     margin-left: 0%;
     margin-top: 0%;
     width: 100%;
+    background-image: none;
 }
 
 .container {
