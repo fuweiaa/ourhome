@@ -56,7 +56,9 @@ const closeAdvertisement = () => {
 
 .xuanchuanyu {
     position: relative;
-    text-align: center;
+    text-align: right;
+    padding-right: 600px;
+    padding-top: 30px;
     font-size: 46px;
     background: linear-gradient(45deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #ff00ff, #ff0000);
     background-size: 600% 600%;
@@ -74,13 +76,15 @@ const closeAdvertisement = () => {
         background-position: 100% 50%;
     }
 }
+
 @keyframes blink-animation {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .aa {

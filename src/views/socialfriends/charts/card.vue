@@ -52,7 +52,7 @@ onMounted(() => {
   height: 200px;
   margin: 10px;
   border-radius: 4px;
-  background: var(--el-color-primary-light-9);
+  background-color: #a9b3b7;
   color: var(--el-color-primary);
   width: auto;
   position: relative;
