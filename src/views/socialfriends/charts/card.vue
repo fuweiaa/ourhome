@@ -2,7 +2,7 @@
  * @Author: yy
  * @Date: 2024-04-25 16:24:45
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-29 16:49:59
+ * @LastEditTime: 2024-04-30 13:36:06
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\card.vue
 -->
 <template>
@@ -29,11 +29,11 @@ import { ref, onMounted } from "vue";
 import EventBus from "@/utils/useEventBus";
 
 let info = ref([
-  { datetime: '4月15日', imgs: '/assets/socialfriends/吃土.jpg', copywriting: '四月十五，玥玥吃土' },
-  { datetime: '4月19日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '玥玥的新旗袍，好看好看！' },
-  { datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
-  { datetime: '4月27日', imgs: '/assets/socialfriends/露营.jpg', copywriting: '天气晴朗，万物可爱' },
-  { datetime: '4月27日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '愿我们永远珍惜这份美好，保护大自然的环境，让这片风景永远美丽如初。' }
+  { title: '四月十五，玥玥吃土', datetime: '4月15日', imgs: '/assets/socialfriends/吃土.jpg', copywriting: '四月十五，玥玥吃土' },
+  { title: '玥玥的新旗袍，好看好看！', datetime: '4月19日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '玥玥的新旗袍，好看好看！' },
+  { title: '四月二三，樱桃酸酸', datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
+  { title: '天气晴朗，万物可爱', datetime: '4月27日', imgs: '/assets/socialfriends/露营.jpg', copywriting: '天气晴朗，万物可爱' },
+  { title: '愿我们永远珍惜这份美好', datetime: '4月27日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '愿我们永远珍惜这份美好，保护大自然的环境，让这片风景永远美丽如初。' }
 ])
 
 function sendMsg() {

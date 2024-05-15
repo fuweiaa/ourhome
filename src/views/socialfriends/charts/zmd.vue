@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-28 16:50:03
  * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-29 17:00:22
+ * @LastEditTime: 2024-04-30 13:36:59
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\zmd.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -14,7 +14,7 @@
         <img :src="item.imgs" alt="图片无法正常加载">
       </div>
       <div class="title">
-        <h1 class="medium">{{ item.copywriting }}</h1>
+        <h2>{{ item.title }}</h2>
       </div>
     </el-carousel-item>
   </el-carousel>
@@ -25,7 +25,6 @@ import EventBus from "@/utils/useEventBus";
 import { onMounted, ref } from 'vue';
 
 let receivedMessage = ref([{}
-
 ]);
 
 // 在组件挂载后监听事件
@@ -51,15 +50,25 @@ onMounted(() => {
 
 
   .img {
+    position: absolute;
     width: 160px;
     height: 180px;
-    flex: 0.5;
+    left: 60px;
 
     img {
       width: 80%;
       height: 100%;
     }
+
+    .title {
+      flex: 1;
+      position: absolute;
+      margin: 10px;
+      width: 500px;
+      text-align: left;
+    }
   }
+
 }
 
 .el-carousel__item h3 {
