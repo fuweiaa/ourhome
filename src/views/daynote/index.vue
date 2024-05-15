@@ -15,10 +15,11 @@
             <Draw />
             <Poem />
         </div>
-        <div>
-            <Guanggao />
+        <div class="float-container" v-if="showGuanggao">
+            <Guanggao @close="hideGuanggao"/>
         </div>
     </div>
+     <Game />
 </template>
 
 <script setup lang="ts">
@@ -27,13 +28,14 @@ import Book from "../daynote/book.vue"
 import Draw from "../daynote/draw.vue"
 import Poem from "../daynote/poem.vue"
 import Guanggao from "../daynote/guanggao.vue"
-//   export default {
-//     name: 'index',
-//     components:{
-//       Card,
-//       zmd
-//     }
-//   }
+import Game from "../daynote/game/index.vue"
+import { ref } from 'vue';
+
+const showGuanggao = ref(true);
+
+function hideGuanggao() {
+  showGuanggao.value = false;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -41,7 +43,6 @@ import Guanggao from "../daynote/guanggao.vue"
     margin-left: 0%;
     margin-top: 0%;
     width: 100%;
-    background-image: none;
 }
 
 .container {
@@ -62,7 +63,13 @@ import Guanggao from "../daynote/guanggao.vue"
     margin-right: 150px;
     /* 调整 Book 组件的右边距 */
 }
-
+.float-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999; /* 确保悬浮容器在最顶层 */
+}
 .Draw {
     width: 30%;
 }

@@ -56,9 +56,7 @@ const closeAdvertisement = () => {
 
 .xuanchuanyu {
     position: relative;
-    text-align: right;
-    padding-right: 600px;
-    padding-top: 30px;
+    text-align: center;
     font-size: 46px;
     background: linear-gradient(45deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #ff00ff, #ff0000);
     background-size: 600% 600%;

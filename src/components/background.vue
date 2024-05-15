@@ -35,7 +35,7 @@ function displayWords() {
 function moveBackground() {
     const scene = document.querySelector('.scene');
     if (scene) {
-        scene.style.marginTop = '60px';
+        scene.style.marginTop = '58px';
     }
 }
 </script>
