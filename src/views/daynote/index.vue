@@ -8,15 +8,25 @@
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
 <template id="myhead">
-    <div>
-        <daynotehead />
-        <book />
+    <div class="container">
+        <Daynotehead />
+        <div class="content">
+            <Book class="book-component" />
+            <Draw />
+            <Poem />
+        </div>
+        <div>
+            <Guanggao />
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import daynotehead from "../daynote/daynotehead.vue"
-import book from "../daynote/book.vue"
+import Daynotehead from "../daynote/daynotehead.vue"
+import Book from "../daynote/book.vue"
+import Draw from "../daynote/draw.vue"
+import Poem from "../daynote/poem.vue"
+import Guanggao from "../daynote/guanggao.vue"
 //   export default {
 //     name: 'index',
 //     components:{
@@ -31,5 +41,33 @@ import book from "../daynote/book.vue"
     margin-left: 0%;
     margin-top: 0%;
     width: 100%;
+    background-image: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.component-container {
+    display: flex;
+}
+
+.book-component {
+    margin-right: 150px;
+    /* 调整 Book 组件的右边距 */
+}
+
+.Draw {
+    width: 30%;
+}
+
+.Poem {
+    width: 30%;
 }
 </style>

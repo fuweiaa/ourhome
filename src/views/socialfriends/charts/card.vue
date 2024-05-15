@@ -1,8 +1,8 @@
 <!--
  * @Author: yy
  * @Date: 2024-04-25 16:24:45
- * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-30 13:36:06
+ * @LastEditors: fuweiaa 2567873016@qq.com
+ * @LastEditTime: 2024-05-15 15:10:24
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\card.vue
 -->
 <template>
@@ -34,6 +34,11 @@ let info = ref([
   { title: '四月二三，樱桃酸酸', datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
   { title: '天气晴朗，万物可爱', datetime: '4月27日', imgs: '/assets/socialfriends/露营.jpg', copywriting: '天气晴朗，万物可爱' },
   { title: '愿我们永远珍惜这份美好', datetime: '4月27日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '愿我们永远珍惜这份美好，保护大自然的环境，让这片风景永远美丽如初。' }
+  { datetime: '4月15日', imgs: '/assets/socialfriends/吃土.jpg', copywriting: '四月十五，玥玥吃土' },
+  { datetime: '4月19日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '玥玥的新旗袍，好看好看！' },
+  { datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
+  { datetime: '4月27日', imgs: '/assets/socialfriends/露营.jpg', copywriting: '天气晴朗，万物可爱' },
+  { datetime: '4月27日', imgs: '/assets/image/hua.png', copywriting: '愿我们永远珍惜这份美好。' }
 ])
 
 function sendMsg() {
@@ -52,7 +57,7 @@ onMounted(() => {
   height: 200px;
   margin: 10px;
   border-radius: 4px;
-  background: var(--el-color-primary-light-9);
+  background-color: #a9b3b7;
   color: var(--el-color-primary);
   width: auto;
   position: relative;

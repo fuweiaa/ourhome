@@ -13,7 +13,7 @@
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
 <template id="myhead">
-    <div>
+    <div class="index">
         <Pyqhead />
         <Zmd />
         <Card />
@@ -33,5 +33,8 @@ import Zmd from '../socialfriends/charts/zmd.vue'
     margin-left: 0%;
     margin-top: 0%;
     width: 100%;
+}
+.index{
+    background-color: #cbeaea;
 }
 </style>
