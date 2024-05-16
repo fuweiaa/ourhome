@@ -2,7 +2,7 @@
  * @Author: fuweiaa 2567873016@qq.com
  * @Date: 2024-05-16 14:22:18
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-16 16:41:47
+ * @LastEditTime: 2024-05-16 17:06:42
  * @FilePath: \ourhome\src\utils\request.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,7 +13,7 @@ import axios from 'axios'
 
 import { ElMessage } from 'element-plus'
 //定义一个变量,记录公共的前缀  ,  baseURL
-const baseURL = 'http://localhost:8080'
+const baseURL = 'http://192.168.1.206:8080'
 // const baseURL = '/api'
 const instance = axios.create({ baseURL })
 
