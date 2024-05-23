@@ -11,8 +11,7 @@
 <template>
     <div class="container" v-if="visible">
         <button class="close-button" @click="closeAdvertisement">×</button>
-        <h1 class="xuanchuanyu">小哥哥在线翻牌</h1>
-        <p class="aa">风里雨里，这里等你</p>
+        <h1 class="xuanchuanyu">男装就买海澜之家</h1>
     </div>
 </template>
 
@@ -30,7 +29,7 @@ const closeAdvertisement = () => {
 <style scoped lang="scss">
 .container {
     width: 100%;
-    height: 200px;
+    height: 300px;
     position: relative;
     border: 1px solid black;
     background-color: rgb(199, 199, 199);
@@ -42,12 +41,12 @@ const closeAdvertisement = () => {
 
 .close-button {
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 0px;
+    right: 0px;
     width: 20px;
     height: 20px;
     border: none;
-    background-color: transparent;
+    background-color: white;
     cursor: pointer;
     font-size: 30px;
     color: #333;
@@ -85,7 +84,4 @@ const closeAdvertisement = () => {
     }
 }
 
-.aa {
-    text-align: center;
-}
 </style>

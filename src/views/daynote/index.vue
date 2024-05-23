@@ -48,6 +48,7 @@ function hideGuanggao() {
 .container {
     display: flex;
     flex-direction: column;
+    background-color: #ededef;
 }
 
 .content {

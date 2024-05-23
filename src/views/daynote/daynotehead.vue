@@ -67,8 +67,8 @@ showAudioPlayer.value = false;
 
 .function {
     margin-right: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(83, 139, 88);
+    color: #999999;
+    // background-color: #ffffff;
     font-family: Arial;
     font-size: 18px;
     font-weight: bold;
@@ -84,7 +84,7 @@ showAudioPlayer.value = false;
     overflow: hidden;
     font-family: Arial;
     font-size: 18px;
-    color: rgb(238, 93, 161);
+    color: #ff5367;
 }
 
 .flower-button::before {
