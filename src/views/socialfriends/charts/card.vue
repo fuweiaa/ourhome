@@ -2,7 +2,7 @@
  * @Author: yy
  * @Date: 2024-04-25 16:24:45
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-15 15:12:34
+ * @LastEditTime: 2024-05-23 11:29:57
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\card.vue
 -->
 <template>
@@ -27,8 +27,9 @@
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 import EventBus from "@/utils/useEventBus";
+import { articleDetail } from '@/api/article.ts';
 
-let info = ref([
+const info = ref([
   { title: '四月十五，玥玥吃土', datetime: '4月15日', imgs: '/assets/socialfriends/吃土.jpg', copywriting: '四月十五，玥玥吃土' },
   { title: '玥玥的新旗袍，好看好看！', datetime: '4月19日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '玥玥的新旗袍，好看好看！' },
   { title: '四月二三，樱桃酸酸', datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
@@ -40,8 +41,17 @@ function sendMsg() {
   EventBus.emit("userInfo", info);
 }
 onMounted(() => {
+  articleCatrgoryDetail()
   sendMsg()
 })
+
+// 声明一个异步函数
+const articleCatrgoryDetail = async () => {
+  let result = await articleDetail();
+  console.log(result);
+
+}
+
 </script>
 
 <style lang="scss" scoped>

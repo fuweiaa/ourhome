@@ -11,3 +11,5 @@ This template should help get you started developing with Vue 3 and TypeScript i
 git push origin master
 
 所有图片都要保存在public/assets里面哦
+
+后端文章管理接口对应朋友圈接口
