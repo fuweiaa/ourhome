@@ -1,8 +1,8 @@
 <!--
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
- * @LastEditors: fuweiaa
- * @LastEditTime: 2024-04-25 15:21:58
+ * @LastEditors: fuweiaa 2567873016@qq.com
+ * @LastEditTime: 2024-05-27 11:18:50
  * @FilePath: \bigevent-vue3\src\views\home.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -10,7 +10,7 @@
 <template>
   <div class="common-layout">
     <Header />
-    <el-divider class="fgx" />
+    <div class="content"></div>
     <router-view />
   </div>
 </template>
@@ -24,11 +24,14 @@ import Header from '../components/Header.vue';
   width: 100%;
   height: 100%;
 
-  .fgx {
-    margin: 0
+  .content {
+    padding: 0px;
+    height: 70px;
   }
 
   .header {
+    position: fixed;
+    z-index: 5;
     display: flex;
     flex-direction: row;
 

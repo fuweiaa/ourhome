@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 16:13:50
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-23 16:49:07
+ * @LastEditTime: 2024-05-27 11:12:33
  * @FilePath: \bigevent-vue3\src\components\Header.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -11,7 +11,7 @@
   <el-header class="header">
     <div class="leftpanel">
       <el-button class="points-social" @click="toSocial">查看朋友圈</el-button>
-      <el-button class="points-familyfuns" @click="">朋友圈发布</el-button>
+      <el-button class="points-familyfuns" @click="toPublish">朋友圈发布</el-button>
       <el-button class="points-daynote" @click="toDaynote">日记</el-button>
       <el-button class="points-eating" @click="toEating">吃饭大转盘</el-button>
       <el-button class="points-question" @click="toQuestion">答案之书</el-button>
@@ -61,6 +61,11 @@ function toSocial() {
   router.push('/social');
 }
 
+function toPublish() {
+  router.push('/publish');
+}
+
+
 function toDaynote() {
   router.push('/daynote');
 }
@@ -91,7 +96,8 @@ function logout() {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  height: 48px;
+  height: 70px;
+  top: 0;
   background-color: rgb(225, 244, 244);
   width: 100%;
 

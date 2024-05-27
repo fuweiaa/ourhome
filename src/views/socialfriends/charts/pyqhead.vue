@@ -1,16 +1,14 @@
 <!--
  * @Author: fuweiaa
  * @Date: 2024-04-28 16:50:03
- * @LastEditors: yy
- * @LastEditTime: 2024-04-29 17:39:48
+ * @LastEditors: fuweiaa 2567873016@qq.com
+ * @LastEditTime: 2024-05-27 11:18:20
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\pyqhead.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
 <template>
-  <div>
-    <p class="head">we are family</p>
-  </div>
+  <p class="head">we are family</p>
 </template>
 
 <script lang="ts">
@@ -20,6 +18,7 @@
 <style lang="scss" scoped>
 .head {
   font-family: Arial, sans-serif;
+  margin: 0;
   font-size: 18px;
   font-weight: bold;
   color: #333;

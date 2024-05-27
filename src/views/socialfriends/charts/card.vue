@@ -2,7 +2,7 @@
  * @Author: yy
  * @Date: 2024-04-25 16:24:45
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-23 11:29:57
+ * @LastEditTime: 2024-05-27 10:39:53
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\card.vue
 -->
 <template>
@@ -10,12 +10,12 @@
     <!-- <el-scrollbar height="100vh"> -->
     <div v-for="(item, index) in info" :key="index" class="scrollbar-demo-item">
       <div class="imgarea">
-        <img :src="item.imgs" alt="图片无法正常加载">
+        <img :src="item.coverImg" alt="图片无法正常加载">
       </div>
       <div class="detailarea">
-        <p>{{ item.datetime }}</p>
+        <p>{{ item.title }}</p>
         <span>
-          {{ item.copywriting }}
+          {{ item.content }}
         </span>
       </div>
       <!-- <button @click="sendMsg">修改内容</button> -->
@@ -29,26 +29,30 @@ import { ref, onMounted } from "vue";
 import EventBus from "@/utils/useEventBus";
 import { articleDetail } from '@/api/article.ts';
 
-const info = ref([
-  { title: '四月十五，玥玥吃土', datetime: '4月15日', imgs: '/assets/socialfriends/吃土.jpg', copywriting: '四月十五，玥玥吃土' },
-  { title: '玥玥的新旗袍，好看好看！', datetime: '4月19日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '玥玥的新旗袍，好看好看！' },
-  { title: '四月二三，樱桃酸酸', datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
-  { title: '天气晴朗，万物可爱', datetime: '4月27日', imgs: '/assets/socialfriends/露营.jpg', copywriting: '天气晴朗，万物可爱' },
-  { title: '愿我们永远珍惜这份美好', datetime: '4月27日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '愿我们永远珍惜这份美好，保护大自然的环境，让这片风景永远美丽如初。' }
-])
+// let info = ref([{}
+//   // { title: '四月十五，玥玥吃土', datetime: '4月15日', imgs: '/assets/socialfriends/吃土.jpg', copywriting: '四月十五，玥玥吃土' },
+//   // { title: '玥玥的新旗袍，好看好看！', datetime: '4月19日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '玥玥的新旗袍，好看好看！' },
+//   // { title: '四月二三，樱桃酸酸', datetime: '4月23日', imgs: '/assets/socialfriends/樱桃.jpg', copywriting: '四月二三，樱桃酸酸' },
+//   // { title: '天气晴朗，万物可爱', datetime: '4月27日', imgs: '/assets/socialfriends/露营.jpg', copywriting: '天气晴朗，万物可爱' },
+//   // { title: '愿我们永远珍惜这份美好', datetime: '4月27日', imgs: '/assets/socialfriends/旗袍.jpg', copywriting: '愿我们永远珍惜这份美好，保护大自然的环境，让这片风景永远美丽如初。' }
+// ])
 
-function sendMsg() {
-  EventBus.emit("userInfo", info);
-}
+let info = ref([]);
+
+
+// function sendMsg() {
+//   EventBus.emit("userInfo", info);
+// }
 onMounted(() => {
   articleCatrgoryDetail()
-  sendMsg()
+  // sendMsg()
 })
 
 // 声明一个异步函数
 const articleCatrgoryDetail = async () => {
   let result = await articleDetail();
-  console.log(result);
+  info.value = result.data;
+  console.log(info);
 
 }
 

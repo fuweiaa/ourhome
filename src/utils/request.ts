@@ -2,9 +2,10 @@
  * @Author: fuweiaa 2567873016@qq.com
  * @Date: 2024-05-16 14:22:18
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-23 16:21:08
+ * @LastEditTime: 2024-05-27 10:44:42
  * @FilePath: \ourhome\src\utils\request.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 请求拦截器和响应拦截器 可以实现跨域访问以及请求头token的保存
+ * 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 //定制请求的实例
 
