@@ -23,6 +23,7 @@ const routes = [
     component: () => import('@/views/login/login.vue'),
     meta: {
       keepAlive: false,
+      hideHeader: true, // 添加一个 meta 字段来标识需要隐藏 Header
     },
   },
   {
