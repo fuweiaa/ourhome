@@ -18,8 +18,6 @@ const registerData = ref({
   rePassword: ''
 })
 
-
-
 // 定义表单校验规则
 //校验密码的函数
 const checkRePassword = (rule, value, callback) => {

@@ -2,7 +2,7 @@
  * @Author: yy
  * @Date: 2024-04-25 16:24:45
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-27 10:39:53
+ * @LastEditTime: 2024-05-27 17:23:01
  * @FilePath: \bigevent-vue3\src\views\socialfriends\charts\card.vue
 -->
 <template>
@@ -18,9 +18,7 @@
           {{ item.content }}
         </span>
       </div>
-      <!-- <button @click="sendMsg">修改内容</button> -->
     </div>
-    <!-- </el-scrollbar> -->
   </div>
 </template>
 
@@ -39,21 +37,14 @@ import { articleDetail } from '@/api/article.ts';
 
 let info = ref([]);
 
-
-// function sendMsg() {
-//   EventBus.emit("userInfo", info);
-// }
 onMounted(() => {
   articleCatrgoryDetail()
-  // sendMsg()
 })
 
 // 声明一个异步函数
 const articleCatrgoryDetail = async () => {
   let result = await articleDetail();
   info.value = result.data;
-  console.log(info);
-
 }
 
 </script>

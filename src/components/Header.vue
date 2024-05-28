@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 16:13:50
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-27 11:12:33
+ * @LastEditTime: 2024-05-28 11:12:01
  * @FilePath: \bigevent-vue3\src\components\Header.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -19,10 +19,10 @@
       <!-- <img src="/assets/image/home.png" alt="Home" class="home-icon"> -->
     </div>
     <div class="rightpanel">
-      <span>乌拉拉！小奇，你好</span>
+      <span>乌拉拉！{{ userInfoStore.info.nickname ? userInfoStore.info.nickname : userInfoStore.info.username }}，你好</span>
       <el-dropdown>
         <span class="el-dropdown__box">
-          <el-avatar />
+          <el-avatar :src="userInfoStore.info.userPic ? userInfoStore.info.userPic : avatar" />
           <el-icon>
             <CaretBottom />
           </el-icon>
@@ -38,7 +38,7 @@
             <router-link to="/user/userResetPassword">
               <el-dropdown-item :icon="EditPen">重置密码</el-dropdown-item>
             </router-link>
-            <el-dropdown-item :icon="SwitchButton">退出登录</el-dropdown-item>
+            <el-dropdown-item :icon="SwitchButton" @click="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -49,12 +49,17 @@
 
 <script setup lang="ts">
 import {
-  ArrowDown, User,
+  User,
   Crop,
   EditPen,
   SwitchButton,
 } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router';
+import avatar from '@/assets/default.png';
+import useUserInfoStore from "@/stores/userInfo.ts"
+import { userInfoService } from '@/api/user.ts'
+const userInfoStore = useUserInfoStore();
+
 // Assuming this is within a <script setup> or composition API setup function
 const router = useRouter();
 function toSocial() {
@@ -64,7 +69,6 @@ function toSocial() {
 function toPublish() {
   router.push('/publish');
 }
-
 
 function toDaynote() {
   router.push('/daynote');
@@ -86,9 +90,26 @@ function login() {
   router.push('/login'); // 切换到登录界面，连接到后端登录界面
 }
 
+import { useTokenStore } from '@/stores/token.ts'
+const tokenStore = useTokenStore()
 function logout() {
   alert("退出登录"); // 需要后端接口
+  // 清除token
+  tokenStore.removeToken()
+  // 清除用户信息
+  userInfoStore.removeInfo()
+  // 跳转到登录界面
+  router.push('/login'); // 切换到登录界面，连接到后端登录界面
 }
+
+
+const getUserInfo = async () => {
+  let result = await userInfoService();
+  userInfoStore.setInfo(result.data)
+}
+// 提前初始化
+getUserInfo();
+
 </script>
 
 <style lang="scss" scoped>

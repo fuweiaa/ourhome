@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 10:24:45
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-23 11:22:29
+ * @LastEditTime: 2024-05-27 14:57:26
  * @FilePath: \bigevent-vue3\src\views\socialfriends\index.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -10,7 +10,7 @@
 <template id="myhead">
   <div class="index">
     <Pyqhead />
-    <Zmd />
+    <!-- <Zmd /> -->
     <Card />
   </div>
 </template>
