@@ -2,7 +2,7 @@
  * @Author: fuwei
  * @Date: 2024-04-22 23:47:20
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-27 10:55:21
+ * @LastEditTime: 2024-05-29 15:20:25
  * @FilePath: \bigevent-vue3\src\router\index.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -36,6 +36,13 @@ const routes = [
   {
     path: '/daynote',
     component: () => import('@/views/daynote/index.vue'),
+    meta: {
+      keepAlive: false,
+    },
+  },
+  {
+    path: '/scene',
+    component: () => import('@/views/threejs/index.vue'),
     meta: {
       keepAlive: false,
     },
