@@ -76,7 +76,7 @@ const routes = [
   },
   {
     path: '/publish',
-    component: () => import('@/views/publish/index.vue'),
+    component: () => import('@/views/publisher/publishselector.vue'),
     meta: {
       keepAlive: false,
     },
