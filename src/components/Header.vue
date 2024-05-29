@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 16:13:50
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-28 11:12:01
+ * @LastEditTime: 2024-05-29 15:19:06
  * @FilePath: \bigevent-vue3\src\components\Header.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -15,14 +15,15 @@
       <el-button class="points-daynote" @click="toDaynote">日记</el-button>
       <el-button class="points-eating" @click="toEating">吃饭大转盘</el-button>
       <el-button class="points-question" @click="toQuestion">答案之书</el-button>
+      <el-button class="points-question" @click="toThree">threejs</el-button>
       <el-button class="points-home" @click="toHome"></el-button>
       <!-- <img src="/assets/image/home.png" alt="Home" class="home-icon"> -->
     </div>
     <div class="rightpanel">
-      <span>乌拉拉！{{ userInfoStore.info.nickname ? userInfoStore.info.nickname : userInfoStore.info.username }}，你好</span>
+      <span>乌拉拉！{{ nickname ? nickname : username }}，你好</span>
       <el-dropdown>
         <span class="el-dropdown__box">
-          <el-avatar :src="userInfoStore.info.userPic ? userInfoStore.info.userPic : avatar" />
+          <el-avatar :src="userPic ? userPic : avatarImg" />
           <el-icon>
             <CaretBottom />
           </el-icon>
@@ -58,9 +59,17 @@ import { useRouter } from 'vue-router';
 import avatar from '@/assets/default.png';
 import useUserInfoStore from "@/stores/userInfo.ts"
 import { userInfoService } from '@/api/user.ts'
-const userInfoStore = useUserInfoStore();
+import { ref } from 'vue';
 
-// Assuming this is within a <script setup> or composition API setup function
+const userInfoStore = useUserInfoStore();
+const userInfo = ref({ ...userInfoStore.info })
+const nickname = userInfo.value.nickname
+const username = userInfo.value.username
+const userPic = userInfo.value.userPic
+
+// 头像
+const avatarImg = ref(avatar)
+
 const router = useRouter();
 function toSocial() {
   router.push('/social');
@@ -82,6 +91,10 @@ function toQuestion() {
   router.push('/question');
 }
 
+function toThree() {
+  router.push('/scene');
+}
+
 function toHome() {
   router.push('/');
 }
@@ -93,7 +106,7 @@ function login() {
 import { useTokenStore } from '@/stores/token.ts'
 const tokenStore = useTokenStore()
 function logout() {
-  alert("退出登录"); // 需要后端接口
+  // alert("退出登录"); // 需要后端接口
   // 清除token
   tokenStore.removeToken()
   // 清除用户信息
@@ -106,6 +119,8 @@ function logout() {
 const getUserInfo = async () => {
   let result = await userInfoService();
   userInfoStore.setInfo(result.data)
+  console.log(userInfo);
+
 }
 // 提前初始化
 getUserInfo();

@@ -54,12 +54,12 @@ const register = async () => {
 // 复用注册表单数据模型
 // 复用注册表单校验规则
 // 登录函数
+
 const login = async () => {
   let result = await userLoginService(registerData.value);
   const tokenStore = useTokenStore();
   ElMessage.success('登录成功')
   tokenStore.setToken(result.data)
-
   // 跳转到首页
   router.push('/')
 }
