@@ -1,21 +1,48 @@
-<!-- PublishImage.vue -->
+<!--
+ * @Author: fuweiaa 2567873016@qq.com
+ * @Date: 2024-05-29 15:49:13
+ * @LastEditors: fuweiaa 2567873016@qq.com
+ * @LastEditTime: 2024-05-29 20:02:59
+ * @FilePath: \ourhome\src\views\publisher\children\publishimage.vue
+ * @Description: 上传多张图片，不支持自动上传刷新，清空所有图片
+ * 
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+-->
+
 <template>
   <div class="container">
     <div class="header"><span class="header-icon">❀</span><span class="header-title">图文编辑</span></div>
     <!-- <h1>图文发布</h1> -->
     <div class="upload-area">
-      <div class="upload-wrapper">
-        <input class="upload-input" type="file" accept=".jpg,.jpeg,.png,.webp" @change="handleFileChange" />
-        <div class="wrapper">
-          <div class="wrapper-content">
-          <p class="wrappicture">拖拽图片到此或点击上传</p>
-          <p class="wrapppicture2">（最多支持上传18张）</p>
-          <button aria-disabled="false" type="button" class="el-button el-button--primary"><!--v-if-->
-            <span>上传图片</span>
-          </button>
-        </div>
-      </div>
-      </div>
+      <el-upload :auto-upload="false" action="#" list-type="picture-card">
+        <el-icon>
+          <Plus />
+        </el-icon>
+
+        <template #file="{ file }">
+          <div>
+            <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
+            <span class="el-upload-list__item-actions">
+              <span class="el-upload-list__item-preview" @click="handlePictureCardPreview(file)">
+                <el-icon><zoom-in /></el-icon>
+              </span>
+              <span v-if="!disabled" class="el-upload-list__item-delete" @click="handleRemove(file)">
+                <el-icon>
+                  <Delete />
+                </el-icon>
+              </span>
+            </span>
+          </div>
+        </template>
+      </el-upload>
+
+      <el-dialog v-model="dialogVisible">
+        <img w-full :src="dialogImageUrl" alt="Preview Image" />
+      </el-dialog>
+
+
+
+
       <div class="alltip">
         <div class="tip">
           <p>图片大小</p>
@@ -47,21 +74,78 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, reactive, toRaw } from 'vue'
+import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
+import { useTokenStore } from '@/stores/token.ts'
+import type { UploadFile } from 'element-plus'
+import socialImageStore from '@/stores/social.ts'
+const ImageStore = socialImageStore();
+
+//朋友圈图片地址
+const imgUrls = reactive(ImageStore.imglist)
+const tokenStore = useTokenStore();
+const uploadRef = ref();
+
+const dialogImageUrl = ref('')
+const dialogVisible = ref(false)
+const disabled = ref(false)
+
+//图片上传成功的回调函数
+const uploadSuccess = (result: { data: any }) => {
+  // 将result.data中的图片地址添加到imgUrls数组中
+  imgUrls.push(result.data);
+}
+
+// 上传朋友圈图片
+// const uploadImgs = async () => {
+//   //调用接口
+//   let result = await userAvatarUpdateService(imgUrls.value);
+//   console.log(result);
+
+//   ElMessage.success('文件上传成功')
+//   //修改pinia中的数据
+//   userInfoStore.info.userPic = imgUrls.value
+// }
+
+// 移除图片
+const handleRemove = (file: UploadFile) => {
+  dialogVisible.value = false;
+  dialogImageUrl.value = '';
+  console.log(file.url!)
+}
+
+// 处理预览图片
+const handlePictureCardPreview = (file: UploadFile) => {
+  dialogImageUrl.value = file.url!
+  dialogVisible.value = true
+}
 
 const title = ref('');
 const content = ref('');
 const publishTime = ref('');
 
-const handleFileChange = (event: Event) => {
-  const input = event.target as HTMLInputElement;
-  if (input.files && input.files.length > 0) {
-    const file = input.files[0];
-    console.log('文件已选择', file);
+const imageList = ref([]);
+
+function handleFileChange(event: { target: { files: any; }; }) {
+  const files = event.target.files;
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      imageList.value.push({ file, url: e.target.result });
+    };
+    reader.readAsDataURL(file);
   }
-};
+}
+
+
+function uploadImages() {
+  // 这里可以实现上传图片到服务器的逻辑
+}
 
 const publish = () => {
+  console.log(imgUrls);
+
   // 发布图文
   console.log('发布图文：', title.value, content.value, publishTime.value);
   // 可以在这里提交表单数据到后端进行处理
@@ -89,19 +173,49 @@ const publish = () => {
 .upload-area {
   margin-bottom: 20px;
 }
+
 .wrapper {
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+  display: flex;
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
 }
+
 .wrapper-content {
-    text-align: center; 
+  text-align: center;
+  overflow: hidden;
+
+  /* 添加这个属性可以防止元素重叠 */
+  // .el-button {
+  //   position: absolute;
+  //   top: 90%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%)
+  // }
 }
+
+.imagelist {
+  float: left;
+  width: 80px;
+  height: 80px;
+
+  /* 使元素横向排布 */
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+
+}
+
+
 .wrappicture {
   font-size: 14px;
   color: #262626;
   margin-top: 20px;
-  align-items: center; /* 垂直居中 */
+  align-items: center;
+  /* 垂直居中 */
 }
 
 .wrapppicture2 {
@@ -110,6 +224,7 @@ const publish = () => {
   margin-top: -10px;
   margin-bottom: 20px;
 }
+
 .upload-wrapper {
   width: 100%;
   height: 200px;
