@@ -2,21 +2,13 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@": [
-        "src"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "@": ["src"],
+      "@/*": ["./src/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -35,7 +27,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/utils/useEventBus.ts"
+    "src/utils/useEventBus.ts",
+    "src/stores/todos.js"
   ],
   "references": [
     {

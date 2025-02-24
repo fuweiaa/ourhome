@@ -2,7 +2,7 @@
  * @Author: fuwei
  * @Date: 2024-04-22 23:47:20
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-29 15:20:25
+ * @LastEditTime: 2025-02-19 15:59:30
  * @FilePath: \bigevent-vue3\src\router\index.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -85,6 +85,20 @@ const routes = [
   {
     path: '/publish',
     component: () => import('@/views/publisher/publishselector.vue'),
+    meta: {
+      keepAlive: false,
+    },
+  },
+  {
+    path: '/test',
+    component: () => import('@/views/webTest/index.vue'),
+    meta: {
+      keepAlive: false,
+    },
+  },
+  {
+    path: '/cesium',
+    component: () => import('@/views/cesiumt/index.vue'),
     meta: {
       keepAlive: false,
     },

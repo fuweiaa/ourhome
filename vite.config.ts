@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-16 17:18:34
+ * @LastEditTime: 2025-02-19 16:46:26
  * @FilePath: \bigevent-vue3\vite.config.ts
  * @Description:
  * Copyright (c) 2024 by VGE, All Rights Reserved.
@@ -30,6 +30,9 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ''), //   /api 替换为空字符串
       },
     },
+  },
+  build: {
+    outDir: 'dist',
   },
 })
 

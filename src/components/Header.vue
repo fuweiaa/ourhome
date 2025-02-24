@@ -2,7 +2,7 @@
  * @Author: fuweiaa
  * @Date: 2024-04-23 16:13:50
  * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-29 15:19:06
+ * @LastEditTime: 2025-02-19 16:00:23
  * @FilePath: \bigevent-vue3\src\components\Header.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
@@ -16,6 +16,8 @@
       <el-button class="points-eating" @click="toEating">吃饭大转盘</el-button>
       <el-button class="points-question" @click="toQuestion">答案之书</el-button>
       <el-button class="points-question" @click="toThree">threejs</el-button>
+      <el-button class="points-question" @click="toTest">前端练习</el-button>
+      <el-button class="points-question" @click="toCesium">cesium</el-button>
       <el-button class="points-home" @click="toHome"></el-button>
       <!-- <img src="/assets/image/home.png" alt="Home" class="home-icon"> -->
     </div>
@@ -102,6 +104,12 @@ function toHome() {
 function login() {
   router.push('/login'); // 切换到登录界面，连接到后端登录界面
 }
+function toTest() {
+  router.push('/test'); // 切换到登录界面，连接到后端登录界面
+}
+function toCesium() {
+  router.push('/cesium'); // 切换到登录界面，连接到后端登录界面
+}
 
 import { useTokenStore } from '@/stores/token.ts'
 const tokenStore = useTokenStore()
@@ -116,14 +124,14 @@ function logout() {
 }
 
 
-const getUserInfo = async () => {
-  let result = await userInfoService();
-  userInfoStore.setInfo(result.data)
-  console.log(userInfo);
+// const getUserInfo = async () => {
+//   let result = await userInfoService();
+//   userInfoStore.setInfo(result.data)
+//   console.log(userInfo);
 
-}
-// 提前初始化
-getUserInfo();
+// }
+// // 提前初始化
+// getUserInfo();
 
 </script>
 
