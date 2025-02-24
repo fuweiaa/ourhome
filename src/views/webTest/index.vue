@@ -153,81 +153,127 @@ console.log(param1.value.username);
 <!-- pinia测试 -->
 <template>
   <!-- <div>  {{ todosStore }} -->
-<!-- </div> -->
-<div class="main">
-  <!-- <div>
+  <!-- </div> -->
+  <div class="main">
+    <!-- <div>
     所有待做清单{{ todos.todos }}
   </div> -->
-  <div class="finished">
-    未完成清单
-    <div class="list" v-for="(item, index) in todosStore.unfinishedTodos" :key="item.id">
-      <!-- 复选框，当点击取消的时候同步修改item.isFinished -->
-      <input class="checkBox" type="checkbox" v-model="item.isFinished" />
-      {{ item.text }}
+    <WeatherDisplay />
+    <div class="finished">
+      x未完成清单
+      <div class="list" v-for="(item, index) in todosStore.unfinishedTodos" :key="item.id">
+        <!-- 复选框，当点击取消的时候同步修改item.isFinished -->
+        <input class="checkBox" type="checkbox" v-model="item.isFinished" />
+        {{ item.text }}
+      </div>
+      √已完成清单
+      <div class="list" v-for="(item, index) in todosStore.finishedTodos" :key="item.id">
+        <!-- 复选框，当点击取消的时候同步修改item.isFinished -->
+        <input type="checkbox" v-model="item.isFinished" />
+        {{ item.text }}
+      </div>
     </div>
-    已完成清单
-    <div class="list" v-for="(item, index) in todosStore.finishedTodos" :key="item.id">
-      <!-- 复选框，当点击取消的时候同步修改item.isFinished -->
-      <input type="checkbox" v-model="item.isFinished" />
-      {{ item.text }}
+    <!-- “+添加任务”按钮 -->
+     <div class="input">
+    <div class="addTask" @click="toggleInput">
+      +添加任务
     </div>
+    <!-- 一个输入框提交信息,点击回车之后输入框里面的信息清空 -->
+    <input  v-if="showInput" class="todo" placeholder="请输入待办事项" type="text" @keydown.enter="addTodo" v-model="newTodoText" />
   </div>
-  <!-- 一个输入框提交信息,点击回车之后输入框里面的信息清空 -->
-    <input class="todo" placeholder="请输入待办事项" type="text" @keydown.enter="addTodo" v-model="newTodoText" /> 
   </div>
 
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
+import { ref } from 'vue';
 import { useTodos } from '@/stores/todos';
+import WeatherDisplay from '@/views/webTest/weatherdisplay.vue';
 const todosStore = useTodos()
 
 let newTodoText = ref(""); // 双向绑定的输入值
-
+let showInput = ref(false); // 控制输入框的显示与隐藏
 // 提交方法
-function addTodo(e:any) {
+function addTodo(e: any) {
   if (e.target.value.trim() === "") return; // 非空校验
   // 调用Store的addTodo方法
   todosStore.addTodo(e.target.value);
   // 清空输入框
   newTodoText.value = "";
+  showInput.value = false; // 提交后隐藏输入框
   console.log(localStorage);
+}
+
+// 控制输入框的显示
+function toggleInput() {
+  showInput.value = !showInput.value;
 }
 </script>
 
 <style lang="scss" scoped>
-.main{
+.main {
   display: flex;
   justify-content: center;
+  background-image: url("@/assets/daibanbj.jpg");
+  height: 100vh;
+  margin: 0;
+  background-size: cover;
 }
-.finished{
-  color: rgb(156, 196, 233);
-  background-color: rgb(250, 250, 225);
+
+.finished {
+  color: rgb(255, 255, 255);
+  // background-color: rgba(93, 143, 168, 0.738);
   width: 800px;
-  height: 40px;
+  height: 30px;
+  margin: 10px;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.5),
+    -2px -2px 4px rgba(255, 255, 255, 0.3);
 }
-.list{
-  color: #2c9678;
+
+.list {
+  color: #ffffff;
   line-height: 40px;
-  background-color: #e9ccd3;
+  background-color: #00000077;
   height: 40px;
   margin: 10px;
-  // 圆角边框
-  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  /* 玻璃质感的透明边框 */
+  border-radius: 8px;
+  /* 圆角，增加光滑感 */
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.4);
+  /* 内阴影增强玻璃效果 */
 }
-.checkBox{
+
+.checkBox {
   margin: 10px;
   width: 15px;
   height: 15px;
 }
-.todo{
+
+/* +添加任务按钮样式 */
+.addTask {
   width: 400px;
   height: 40px;
   margin: 10px;
-  border-radius: 20px;
   padding: 10px;
   font-size: 20px;
-  border: 1px solid #2c9678;
+  text-align: center;
+  background-color: #ffffffbd;
+  border: 1px solid #2c769664;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.todo {
+  width: 400px;
+  height: 40px;
+  margin: 10px;
+  // border-radius: 20px;
+  margin-top: 10px; /* 确保输入框距离按钮有一定的间距 */
+  padding: 10px;
+  font-size: 20px;
+  background-color: #ffffffbd;
+  border: 1px solid #2c769664;
 }
 </style>
