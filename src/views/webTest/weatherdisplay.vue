@@ -38,15 +38,18 @@ interface WeatherResponse {
 
 // 获取天气数据的函数
 const fetchWeather = async () => {
-    try {
-        const response = await axios.get<WeatherResponse>(
-            `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}`
-        );
-        weatherData.value = response.data;
-    } catch (error) {
-        console.error('获取天气数据失败:', error);
-        weatherData.value = null;
-    }
+  try {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${apiKey}`;
+    const response = await new Promise((resolve, reject) => {
+      axios.get<WeatherResponse>(apiUrl)
+        .then(res => resolve(res))
+        .catch(err => reject(err));
+    });
+    weatherData.value = response.data;
+  } catch (error) {
+    console.error('获取天气数据失败:', error);
+    weatherData.value = null;
+  }
 };
 
 // 组件挂载时获取天气数据

@@ -1,3 +1,13 @@
+<!--
+ * @Author: fuwei 2567873016@qq.com
+ * @Date: 2025-03-22 23:25:55
+ * @LastEditors: fuwei 2567873016@qq.com
+ * @LastEditTime: 2025-05-24 12:19:15
+ * @FilePath: \ourhome\src\views\threejs\weather.vue
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by VGE, All Rights Reserved. 
+-->
 <template>
   <div ref="threeContainer" class="container">
     <div v-if="weatherInfo" class="weather">
@@ -38,10 +48,10 @@ const weatherInfo = ref<any>(null) // 使用 ref 来保存响应式数据
 // 获取天气信息的异步操作
 async function fetchWeather(adcode: string) {
   try {
-    const weather = await getWeatherInfo(adcode) // 根据城市adcode获取天气信息
-    weatherInfo.value = weather // 将获取的天气数据赋值给响应式变量
+    const weather = await getWeatherInfo(adcode); // 根据城市adcode获取天气信息
+    weatherInfo.value = weather; // 将获取的天气数据赋值给响应式变量
   } catch (error) {
-    console.error(error)  // 打印错误信息
+    console.error(error);  // 打印错误信息
   }
 }
 
@@ -58,6 +68,7 @@ onMounted(() => {
   height: 100vh;
   overflow: hidden;
 }
+
 .weather {
   font-size: 18px;
 }
