@@ -9,7 +9,7 @@
       <el-col :span="12">
         <el-form :model="userInfo" :rules="rules" label-width="100px" size="large">
           <el-form-item label="登录名称">
-            <el-input v-model="userInfo.username" disabled></el-input>
+            <el-input v-model="userInfo.userName" disabled></el-input>
           </el-form-item>
 
           <el-form-item label="用户昵称" prop="nickname">

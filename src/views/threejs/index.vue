@@ -2,7 +2,7 @@
  * @Author: fuwei 2567873016@qq.com
  * @Date: 2025-03-22 23:25:55
  * @LastEditors: fuwei 2567873016@qq.com
- * @LastEditTime: 2025-05-24 12:54:29
+ * @LastEditTime: 2025-05-27 17:32:45
  * @FilePath: \ourhome\src\views\threejs\index.vue
  * @Description: 
  * 
@@ -35,12 +35,13 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
 import Session from "./components/Session.vue"
+import { mockGet } from "@/api/mock";
 window._AMapSecurityConfig = {
   securityJsCode: "f069e5a5bcc1a401aeb95849ca7a9c88",
 };
 let map = null;
 var driving = null; // 驾车导航类
-var geocoder = null; // 地理编码类
+var geocoder: { getLocation: (arg0: string, arg1: { (status: any, result: any): void; (status: any, result: any): void; }) => any; } | null = null; // 地理编码类
 let startPoint = ref("西南交通大学");
 let endPoint = ref("成都市中心");
 onMounted(() => {
@@ -82,8 +83,9 @@ onUnmounted(() => {
   map?.destroy();
 });
 
-function closeDialog(params: type) {
-  console.log("关闭对话框");
+async function closeDialog(params: type) {
+  let res = await mockGet();
+  console.log("关闭对话框", res);
 }
 
 

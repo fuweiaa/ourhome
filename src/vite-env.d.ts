@@ -9,3 +9,8 @@
  * Copyright (c) 2025 by VGE, All Rights Reserved.
  */
 /// <reference types="vite/client" />
+
+declare module "mockjs" {
+  import Mock from "mockjs"
+  export = Mock
+}

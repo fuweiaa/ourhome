@@ -134,19 +134,19 @@ setTimeout(() => {
 <!-- <script setup lang="ts">
 import { reactive,ref } from 'vue';
 interface LoginInfo {
-    username: string;
+    userName: string;
     password: string;
 }
 const param = reactive<LoginInfo>({
-    username: 'fw',
+    userName: 'fw',
     password: '123456',
 });
 const param1 = ref<LoginInfo>({
-    username: 'fw',
+    userName: 'fw',
     password: '123456',
 });
-console.log(param.username);
-console.log(param1.value.username);
+console.log(param.userName);
+console.log(param1.value.userName);
 
 </script> -->
 
@@ -174,13 +174,14 @@ console.log(param1.value.username);
       </div>
     </div>
     <!-- “+添加任务”按钮 -->
-     <div class="input">
-    <div class="addTask" @click="toggleInput">
-      +添加任务
+    <div class="input">
+      <div class="addTask" @click="toggleInput">
+        +添加任务
+      </div>
+      <!-- 一个输入框提交信息,点击回车之后输入框里面的信息清空 -->
+      <input v-if="showInput" class="todo" placeholder="请输入待办事项" type="text" @keydown.enter="addTodo"
+        v-model="newTodoText" />
     </div>
-    <!-- 一个输入框提交信息,点击回车之后输入框里面的信息清空 -->
-    <input  v-if="showInput" class="todo" placeholder="请输入待办事项" type="text" @keydown.enter="addTodo" v-model="newTodoText" />
-  </div>
   </div>
 
 </template>
@@ -270,7 +271,8 @@ function toggleInput() {
   height: 40px;
   margin: 10px;
   // border-radius: 20px;
-  margin-top: 10px; /* 确保输入框距离按钮有一定的间距 */
+  margin-top: 10px;
+  /* 确保输入框距离按钮有一定的间距 */
   padding: 10px;
   font-size: 20px;
   background-color: #ffffffbd;

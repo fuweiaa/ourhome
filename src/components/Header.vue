@@ -1,9 +1,9 @@
 <!--
  * @Author: fuweiaa
  * @Date: 2024-04-23 16:13:50
- * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2025-02-19 16:00:23
- * @FilePath: \bigevent-vue3\src\components\Header.vue
+ * @LastEditors: fuwei 2567873016@qq.com
+ * @LastEditTime: 2025-05-29 00:21:08
+ * @FilePath: \ourhome\src\components\Header.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
@@ -22,7 +22,7 @@
       <!-- <img src="/assets/image/home.png" alt="Home" class="home-icon"> -->
     </div>
     <div class="rightpanel">
-      <span>乌拉拉！{{ nickname ? nickname : username }}，你好</span>
+      <span>乌拉拉！{{ nickname ? nickname : userName }}，你好</span>
       <el-dropdown>
         <span class="el-dropdown__box">
           <el-avatar :src="userPic ? userPic : avatarImg" />
@@ -66,7 +66,7 @@ import { ref } from 'vue';
 const userInfoStore = useUserInfoStore();
 const userInfo = ref({ ...userInfoStore.info })
 const nickname = userInfo.value.nickname
-const username = userInfo.value.username
+const userName = userInfo.value.userName
 const userPic = userInfo.value.userPic
 
 // 头像
@@ -124,14 +124,14 @@ function logout() {
 }
 
 
-// const getUserInfo = async () => {
-//   let result = await userInfoService();
-//   userInfoStore.setInfo(result.data)
-//   console.log(userInfo);
+const getUserInfo = async () => {
+  let result = await userInfoService();
+  userInfoStore.setInfo(result.data)
+  console.log(userInfo);
 
-// }
-// // 提前初始化
-// getUserInfo();
+}
+// 提前初始化
+getUserInfo();
 
 </script>
 

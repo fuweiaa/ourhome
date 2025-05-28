@@ -1,9 +1,9 @@
 <!--
  * @Author: fuweiaa
  * @Date: 2024-04-23 09:59:39
- * @LastEditors: fuweiaa 2567873016@qq.com
- * @LastEditTime: 2024-05-28 15:36:58
- * @FilePath: \bigevent-vue3\src\views\home.vue
+ * @LastEditors: fuwei 2567873016@qq.com
+ * @LastEditTime: 2025-05-28 00:20:51
+ * @FilePath: \ourhome\src\views\home.vue
  * @Description: 
  * Copyright (c) 2024 by VGE, All Rights Reserved. 
 -->
