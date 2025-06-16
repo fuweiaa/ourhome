@@ -60,9 +60,11 @@ const login = async () => {
   console.log('用户登录传入数据:', registerData);
 
   let result = await userLoginService(registerData.value);
-  const tokenStore = useTokenStore();
+  console.log(result);
+
+  // const tokenStore = useTokenStore();
   ElMessage.success('登录成功')
-  tokenStore.setToken(result.data)
+  // tokenStore.setToken(result.data)
   // 跳转到首页
   router.push('/')
 }

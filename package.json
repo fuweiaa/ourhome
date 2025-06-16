@@ -12,7 +12,6 @@
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@chatui/core": "^3.0.0",
     "axios": "^1.6.8",
-    "cesium": "^1.126.0",
     "element-plus": "^2.7.1",
     "install": "^0.13.0",
     "mockjs": "^1.1.0",

@@ -98,7 +98,7 @@ const routes = [
   },
   {
     path: "/cesium",
-    component: () => import("@/views/cesiumt/index.vue"),
+    component: () => import("@/views/cesium/index.vue"),
     meta: {
       keepAlive: false,
     },

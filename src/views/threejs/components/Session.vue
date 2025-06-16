@@ -20,6 +20,9 @@ const messages = ref<{ content: string; type: 'user' | 'assistant' }[]>([]);
 const inputMessage = ref('');
 const messagesContainer = ref<HTMLElement | null>(null);
 
+/**
+ * 发送消息
+ */
 const sendMessage = () => {
   if (inputMessage.value.trim()) {
     messages.value.push({ content: inputMessage.value, type: 'user' });
@@ -64,6 +67,7 @@ onMounted(() => {
 
 .chat-messages {
   display: flex;
+  flex-direction: column;
   overflow-y: auto;
   padding: 10px;
 }
@@ -76,11 +80,15 @@ onMounted(() => {
 }
 
 .message.user {
-  background-color: #3dadfd;
+  background-color: rgb(121, 119, 119);
+  margin-left: auto;
+  text-align: right;
 }
 
 .message.assistant {
   background-color: #fffb00;
+  margin-right: auto;
+  text-align: left;
 }
 
 .chat-input {
